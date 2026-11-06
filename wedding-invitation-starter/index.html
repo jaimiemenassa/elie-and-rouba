@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8f1eb" />
+  <title>We're Getting Married!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="paper-grain"></div>
+
+  <main>
+    <section class="cover" id="cover">
+      <div class="cover-flower flower-one">✿</div>
+      <div class="cover-flower flower-two">✿</div>
+      <div class="cover-content">
+        <p class="eyebrow">A little celebration of love</p>
+        <div class="seal" aria-hidden="true">♥</div>
+        <h1>You're invited<br><em>to our wedding</em></h1>
+        <p class="cover-subtitle">A day full of love, laughter & happy tears.</p>
+        <button class="primary-button open-button" id="openInvitation">Open your invitation <span>↗</span></button>
+        <p class="tiny-note">Please open with a smile</p>
+      </div>
+      <div class="cover-bottom">SCROLL LESS, CELEBRATE MORE</div>
+    </section>
+
+    <div class="site-content hidden" id="siteContent">
+      <header class="topbar">
+        <a href="#home" class="monogram" aria-label="Back to top">E <span>&</span> R</a>
+        <nav>
+          <a href="#story">Our day</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#rsvp">RSVP</a>
+        </nav>
+      </header>
+
+      <section class="hero section" id="home">
+        <p class="eyebrow">Together with their families</p>
+        <h2 class="couple-names"><span data-groom>Alex</span><i>&</i><span data-bride>Sarah</span></h2>
+        <p class="hero-line">invite you to celebrate the beginning of their forever</p>
+        <div class="hero-photo photo-placeholder" id="heroPhoto">
+          <span class="photo-hint">Your favorite photo of the couple</span>
+        </div>
+        <div class="date-pill"><span data-date>Saturday · June 19, 2027</span><span>✦</span><span data-location>Beirut, Lebanon</span></div>
+        <a class="scroll-cue" href="#story">A little more <span>↓</span></a>
+      </section>
+
+      <section class="countdown-section section">
+        <p class="eyebrow">The countdown is on</p>
+        <h2>Our forever begins in...</h2>
+        <div class="countdown" aria-label="Countdown to the wedding">
+          <div><strong id="days">---</strong><span>days</span></div>
+          <div><strong id="hours">--</strong><span>hours</span></div>
+          <div><strong id="minutes">--</strong><span>minutes</span></div>
+          <div><strong id="seconds">--</strong><span>seconds</span></div>
+        </div>
+      </section>
+
+      <section class="story section" id="story">
+        <div class="section-heading">
+          <p class="eyebrow">The details</p>
+          <h2>Save the date</h2>
+          <p>We would be so happy to have you with us on our special day.</p>
+        </div>
+        <div class="details-grid">
+          <article class="detail-card">
+            <span class="detail-icon">♡</span>
+            <p class="eyebrow">When</p>
+            <h3 data-full-date>Saturday, June 19, 2027</h3>
+            <p data-time>At 6:00 PM</p>
+          </article>
+          <article class="detail-card">
+            <span class="detail-icon">⌖</span>
+            <p class="eyebrow">Where</p>
+            <h3 data-venue>Venue name</h3>
+            <p data-address>Venue address, Lebanon</p>
+            <a id="mapLink" class="text-link" href="#" target="_blank" rel="noreferrer">View location ↗</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="gallery-section section" id="gallery">
+        <div class="section-heading">
+          <p class="eyebrow">Little moments, big love</p>
+          <h2>A glimpse of us</h2>
+          <p>Some favorite memories before the next chapter begins.</p>
+        </div>
+        <div class="gallery">
+          <div class="gallery-photo gallery-one"><span>Photo 01</span></div>
+          <div class="gallery-photo gallery-two"><span>Photo 02</span></div>
+          <div class="gallery-photo gallery-three"><span>Photo 03</span></div>
+        </div>
+      </section>
+
+      <section class="rsvp-section section" id="rsvp">
+        <div class="rsvp-card">
+          <p class="eyebrow">The best part is celebrating together</p>
+          <h2>Will you join us?</h2>
+          <p class="rsvp-intro">Please let us know if you'll be there. We can't wait to celebrate with you!</p>
+          <form id="rsvpForm">
+            <label for="guestName">Your full name</label>
+            <input id="guestName" name="guestName" type="text" placeholder="e.g. Jamie Smith" required maxlength="100" />
+            <label for="attendance">Will you be attending?</label>
+            <select id="attendance" name="attendance" required>
+              <option value="" disabled selected>Please choose</option>
+              <option value="yes">Joyfully accepts</option>
+              <option value="no">Regretfully declines</option>
+            </select>
+            <div id="guestCountWrap">
+              <label for="guestCount">Number of guests (including you)</label>
+              <select id="guestCount" name="guestCount">
+                <option value="1">1</option><option value="2">2</option>
+                <option value="3">3</option><option value="4">4</option>
+                <option value="5">5</option><option value="6">6</option>
+              </select>
+            </div>
+            <label for="message">A little note (optional)</label>
+            <textarea id="message" name="message" rows="3" maxlength="500" placeholder="Leave the couple a message..."></textarea>
+            <button class="primary-button submit-button" type="submit" id="submitRsvp">Send RSVP <span>♡</span></button>
+            <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+          </form>
+          <p class="rsvp-deadline">Kindly reply by <span data-rsvp-deadline>June 1, 2027</span></p>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-heart">♥</div>
+        <h2><span data-groom>Alex</span> & <span data-bride>Sarah</span></h2>
+        <p>We can't wait to celebrate with you.</p>
+        <small>MADE WITH LOVE · <span data-year>2027</span></small>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>

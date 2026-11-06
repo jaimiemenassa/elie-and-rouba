@@ -1,0 +1,5 @@
+Add the couple's photos here. Use these filenames or update script.js:
+couple-main.jpg
+couple-1.jpg
+couple-2.jpg
+couple-3.jpg
